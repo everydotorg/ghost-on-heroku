@@ -1,3 +1,19 @@
+# Running locally
+
+You can run the blog locally by:
+
+1. Starting docker.
+2. Starting the database by running `scripts/runDockerDatabase.sh`.
+3. Getting a backup of the blog's database (get the variables from Heroku):
+```bash
+mysqldump --host="host" --user="user" --password="pass" --column-statistics=0 --set-gtid-purged=OFF database_name > backup.sql
+```
+4. Import the backup to the local database:
+```bash
+mysql -h 127.0.0.1 -u root -prootpassword everydotorgblog < backup.sql
+```
+5. Run `npm start`.
+
 # [Ghost 3.X](https://github.com/TryGhost/Ghost) on [Heroku](http://heroku.com)
 
 Ghost is a free, open, simple blogging platform. Visit the project's website at <http://ghost.org>, or read the docs on <http://support.ghost.org>.
