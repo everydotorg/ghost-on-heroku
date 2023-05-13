@@ -8,11 +8,11 @@
   },
   "bugs": "https://github.com/TryGhost/Ghost/issues",
   "private": true,
-  "version": "3.2.0",
+  "version": "4.11.0",
   "dependencies": {
     "casper": "github:tryghost/Casper#3.0.4",
     "casper-everydotorg": "github:everydotorg/casper-everydotorg",
-    "ghost": "4.5.0",
+    "ghost": "4.11.0",
     "ghost-storage-adapter-s3": "^2.8.0",
     "ghost-storage-cloudinary": "^2.2.5",
     "ghost-webdav-storage-adapter": "^0.3.5",
