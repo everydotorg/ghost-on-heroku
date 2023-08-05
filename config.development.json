@@ -11,7 +11,7 @@
        "user": "testuser",
        "password": "testpassword",
        "database": "everydotorgblog",
-       "charset": "utf8"
+       "charset": "utf8mb4"
     }
   },
   "mail": {

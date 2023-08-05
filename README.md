@@ -1,3 +1,10 @@
+# Upgrading GHOST
+
+You can upgrade Ghost by updating the version in package.json.
+
+NOTE: The package.json version number MUST be kept in-line with the Ghost
+version number, otherwise migrations will fail to run.
+
 # Running locally
 
 You can run the blog locally by:
@@ -5,13 +12,17 @@ You can run the blog locally by:
 1. Starting docker.
 2. Starting the database by running `scripts/runDockerDatabase.sh`.
 3. Getting a backup of the blog's database (get the variables from Heroku):
+
 ```bash
 mysqldump --host="host" --user="user" --password="pass" --column-statistics=0 --set-gtid-purged=OFF database_name > backup.sql
 ```
+
 4. Import the backup to the local database:
+
 ```bash
 mysql -h 127.0.0.1 -u root -prootpassword everydotorgblog < backup.sql
 ```
+
 5. Run `npm start`.
 
 # [Ghost 3.X](https://github.com/TryGhost/Ghost) on [Heroku](http://heroku.com)
@@ -116,7 +127,7 @@ As an alternative to S3 and Cloudinary, you can also use your own WebDAV server,
 
 - `WEBDAV_STORAGE_PATH_PREFIX`: Optional even if using WebDAV uploads. This is the location where the public will be able to access the uploaded file. Defaults to `content/`, which makes Ghost server the files for you, but can also be an external domain such as `https://media.mysite.com/ghost-files`.
 
-The difference between `WEBDAV_PATH_PREFIX` and `WEBDAV_STORAGE_PATH_PREFIX` is this: you *upload* the files to `WEBDAV_PATH_PREFIX` via WebDAV, but you *download* them from `WEBDAV_STORAGE_PATH_PREFIX` using ordinary HTTP.
+The difference between `WEBDAV_PATH_PREFIX` and `WEBDAV_STORAGE_PATH_PREFIX` is this: you _upload_ the files to `WEBDAV_PATH_PREFIX` via WebDAV, but you _download_ them from `WEBDAV_STORAGE_PATH_PREFIX` using ordinary HTTP.
 
 For more detailed information, you can refer to [the ghost-webdav-adapter repo](https://github.com/bartt/ghost-webdav-storage-adapter)
 
