@@ -1,5 +1,7 @@
 node_modules/
 npm-debug.log*
+.DS_Store
+backup.sql
 
 content/data/*.db
 content/data/*.json
@@ -10,3 +12,6 @@ content/logs/
 
 content/themes/*
 !content/themes/.gitkeep
+
+content/public/
+content/settings/
