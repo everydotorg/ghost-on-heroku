@@ -34,6 +34,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "heroku-prebuild": "bash bin/preseed-ghost.sh",
     "postinstall": "bash bin/copy-themes.sh && bash bin/copy-webdav-plugin.sh"
   },
   "devDependencies": {
