@@ -23,8 +23,5 @@
       "stdout"
     ]
   },
-  "process": "local",
-  "paths": {
-    "contentPath": "content"
-  }
+  "process": "local"
 }
