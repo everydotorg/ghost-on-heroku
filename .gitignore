@@ -10,6 +10,3 @@ content/logs/
 
 content/themes/*
 !content/themes/.gitkeep
-
-content/public/
-content/settings/
