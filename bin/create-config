@@ -51,7 +51,8 @@ function createConfig() {
         upload: {
           use_filename: true,
           unique_filename: false,
-          overwrite: false,
+          overwrite: true,
+          invalidate: true,
           folder: "ghost-blog-images",
           tags: ["blog"]
         },
