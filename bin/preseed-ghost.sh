@@ -10,8 +10,17 @@ set -e
 
 GHOST_RANGE=$(node -e "process.stdout.write(require('./package.json').dependencies.ghost)")
 
+# Heroku's build cache can restore node_modules from a PREVIOUS deploy's
+# ghost version (e.g. after a version bump). Only skip preseeding if the
+# already-present node_modules/ghost is actually the version we need -
+# otherwise it's stale and must be removed and re-extracted, or npm will
+# try to install against mismatched/missing component tarballs.
 if [ -d "node_modules/ghost" ]; then
-	exit 0
+	INSTALLED_VERSION=$(node -e "try { process.stdout.write(require('./node_modules/ghost/package.json').version) } catch (e) {}")
+	if [ "$INSTALLED_VERSION" = "$GHOST_RANGE" ]; then
+		exit 0
+	fi
+	rm -rf node_modules/ghost
 fi
 
 TMPDIR=$(mktemp -d)
