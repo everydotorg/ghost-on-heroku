@@ -49,8 +49,7 @@ function createConfig() {
       'ghost-storage-cloudinary': {
         useDatedFolder: false,
         upload: {
-          use_filename: true,
-          unique_filename: false,
+          use_filename: false,
           overwrite: false,
           folder: "ghost-blog-images",
           tags: ["blog"]
