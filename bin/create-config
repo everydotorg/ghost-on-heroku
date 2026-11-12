@@ -49,8 +49,12 @@ function createConfig() {
       'ghost-storage-cloudinary': {
         useDatedFolder: false,
         upload: {
-          use_filename: true,
-          unique_filename: false,
+          // use_filename must stay false: when true, ghost-storage-cloudinary
+          // forces public_id = the bare filename, so re-uploading e.g.
+          // "Full-Logo.png" or "image.png" collides with the existing asset
+          // and (with overwrite: false) silently returns the OLD image.
+          // With it false, Cloudinary assigns a unique public_id per upload.
+          use_filename: false,
           overwrite: false,
           folder: "ghost-blog-images",
           tags: ["blog"]
