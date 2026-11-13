@@ -56,6 +56,13 @@ function createConfig() {
           // With it false, Cloudinary assigns a unique public_id per upload.
           use_filename: false,
           overwrite: false,
+          // Name a preset explicitly so the Cloudinary account's default
+          // upload preset (the account is shared with the main every.org
+          // app) is not applied. Without this, blog uploads were stored as
+          // JPG, turning transparent PNGs like the logo into images with a
+          // white background. ml_default is Cloudinary's built-in preset
+          // and sets no format.
+          upload_preset: "ml_default",
           folder: "ghost-blog-images",
           tags: ["blog"]
         },
